@@ -6,7 +6,7 @@
 
 * MySQL 5.7
 
-* Nginx
+* Nginx 1.19.1
 
 * Docker
 
