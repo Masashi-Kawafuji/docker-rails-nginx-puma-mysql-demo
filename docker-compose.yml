@@ -15,6 +15,8 @@ services:
   app:
     build: ./rails-with-nginx
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    stdin_open: true
+    tty: true
     environment:
       DB_USER: masashi
       DB_NAME: rails-with-nginx
@@ -37,3 +39,5 @@ services:
       - app
     volumes:
       - ./rails-with-nginx/log/nginx:/var/log/nginx
+      - ./rails-with-nginx/public:/var/www/rails/public
+      - ./nginx/config/:/etc/nginx/conf.d
